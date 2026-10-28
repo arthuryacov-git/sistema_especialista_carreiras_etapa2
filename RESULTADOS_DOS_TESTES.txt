@@ -1,0 +1,34 @@
+VALIDAÇÃO DO PROJETO — SISTEMA ESPECIALISTA DE CARREIRAS EM TI
+Verificação sintática: app.py, motor_inferencia.py e tests/test_motor.py compilados sem erros.
+Testes automatizados: 19 testes aprovados; incluindo 500 perfis aleatórios e 10 arquétipos de carreira.
+A interface gráfica Streamlit não pôde ser iniciada neste ambiente porque a dependência não estava instalada e o acesso ao repositório de pacotes estava indisponível.
+
+AMOSTRAS DOS RESULTADOS DO MOTOR DE INFERÊNCIA
+
+Perfil simulado: Back-end
+1º: Back-end — 100.0%
+2º: QA — 85.0%
+3º: Cibersegurança — 74.3%
+Gaps de iniciante: 6 competências; preparação Júnior 0.0%.
+
+Perfil simulado: Cientista de Dados
+1º: Cientista de Dados — 100.0%
+2º: Back-end — 54.5%
+3º: QA — 39.8%
+Gaps de iniciante: 6 competências; preparação Júnior 0.0%.
+
+Perfil simulado: Mobile
+1º: Mobile — 100.0%
+2º: Front-end/UX — 92.2%
+3º: QA — 68.5%
+Gaps de iniciante: 6 competências; preparação Júnior 0.0%.
+
+Perfil simulado: Product Management
+1º: Product Management — 100.0%
+2º: Front-end/UX — 79.3%
+3º: QA — 64.8%
+Gaps de iniciante: 6 competências; preparação Júnior 0.0%.
+
+Comando de teste: python -m unittest discover -s tests -v
+Comando da interface: python -m streamlit run app.py
+Os percentuais são pontuações heurísticas e não probabilidades de êxito profissional.

@@ -1,0 +1,1502 @@
+{
+  "versao": "2.0.0",
+  "descricao": "Base de conhecimento do consultor de carreiras em TI. Compatibilidades são heurísticas, não probabilidades nem avaliações profissionais.",
+  "parametros": {
+    "peso_afinidades": 90,
+    "peso_objetivos": 10,
+    "maximo_objetivos": 2,
+    "faixa_afinidade": [
+      1,
+      5
+    ],
+    "faixa_competencia": [
+      0,
+      5
+    ],
+    "empate_tecnico_pontos": 2.0
+  },
+  "atributos": {
+    "logica": {
+      "rotulo": "Raciocínio lógico",
+      "descricao": "Resolver problemas estruturados e identificar padrões."
+    },
+    "matematica": {
+      "rotulo": "Matemática",
+      "descricao": "Trabalhar com cálculos, modelos e conceitos matemáticos."
+    },
+    "programacao": {
+      "rotulo": "Programação",
+      "descricao": "Construir soluções escrevendo código."
+    },
+    "design_visual": {
+      "rotulo": "Design visual",
+      "descricao": "Criar interfaces e identidades visuais."
+    },
+    "experiencia_usuario": {
+      "rotulo": "Experiência do usuário (UX)",
+      "descricao": "Entender necessidades e melhorar a experiência de uso."
+    },
+    "dados": {
+      "rotulo": "Dados e análises",
+      "descricao": "Analisar, organizar e interpretar dados."
+    },
+    "estatistica": {
+      "rotulo": "Estatística",
+      "descricao": "Investigar tendências, experimentos e incerteza."
+    },
+    "bancos_dados": {
+      "rotulo": "Bancos de dados",
+      "descricao": "Modelar, consultar e manter informações."
+    },
+    "infraestrutura": {
+      "rotulo": "Infraestrutura e redes",
+      "descricao": "Configurar sistemas, servidores e redes."
+    },
+    "automacao": {
+      "rotulo": "Automação",
+      "descricao": "Automatizar processos, testes e operações."
+    },
+    "seguranca": {
+      "rotulo": "Segurança digital",
+      "descricao": "Prevenir, identificar e mitigar riscos técnicos."
+    },
+    "qualidade": {
+      "rotulo": "Qualidade e testes",
+      "descricao": "Encontrar problemas e melhorar a confiabilidade."
+    },
+    "colaboracao": {
+      "rotulo": "Trabalho em equipe",
+      "descricao": "Colaborar com pessoas de funções diferentes."
+    },
+    "gestao": {
+      "rotulo": "Gestão e planejamento",
+      "descricao": "Organizar prioridades, negociar e decidir caminhos."
+    },
+    "nuvem": {
+      "rotulo": "Computação em nuvem",
+      "descricao": "Projetar e operar serviços e plataformas de nuvem."
+    },
+    "mobile": {
+      "rotulo": "Aplicativos móveis",
+      "descricao": "Desenvolver experiências para celulares e tablets."
+    }
+  },
+  "objetivos": {
+    "criar_produtos": "Criar produtos digitais",
+    "resolver_problemas": "Resolver desafios técnicos",
+    "pesquisa": "Pesquisar e experimentar",
+    "criatividade": "Exercitar criatividade e design",
+    "operacao": "Operar e escalar sistemas",
+    "proteger": "Proteger sistemas e dados",
+    "lideranca": "Planejar produtos e liderar decisões",
+    "qualidade": "Garantir qualidade e confiabilidade"
+  },
+  "trilhas": {
+    "backend": {
+      "nome": "Back-end",
+      "descricao": "APIs, regras de negócio, bancos de dados e serviços.",
+      "pesos": {
+        "programacao": 5,
+        "logica": 5,
+        "bancos_dados": 4,
+        "automacao": 2,
+        "qualidade": 2,
+        "seguranca": 1,
+        "colaboracao": 1
+      },
+      "objetivos": [
+        "resolver_problemas",
+        "criar_produtos",
+        "qualidade"
+      ],
+      "penalidades": [
+        {
+          "atributo": "programacao",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 10,
+          "motivo": "Pouca afinidade com programação."
+        },
+        {
+          "atributo": "logica",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 5,
+          "motivo": "Pouca afinidade com lógica."
+        }
+      ],
+      "competencias": [
+        {
+          "id": "linguagem",
+          "nome": "Linguagem de back-end (Python/Java/Node.js)",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 1,
+          "tecnologias": [
+            "Python ou Java",
+            "orientação a objetos"
+          ],
+          "orientacao": "Aprenda sintaxe, funções e organização de código."
+        },
+        {
+          "id": "git",
+          "nome": "Git e GitHub",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 2,
+          "tecnologias": [
+            "Git",
+            "GitHub"
+          ],
+          "orientacao": "Pratique branches, commits e revisão de código."
+        },
+        {
+          "id": "api",
+          "nome": "APIs REST e HTTP",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 3,
+          "tecnologias": [
+            "HTTP",
+            "REST",
+            "FastAPI ou Spring Boot"
+          ],
+          "orientacao": "Implemente rotas, validações e tratamento de erros."
+        },
+        {
+          "id": "sql",
+          "nome": "SQL e modelagem relacional",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 4,
+          "tecnologias": [
+            "SQL",
+            "PostgreSQL"
+          ],
+          "orientacao": "Modele entidades, relações, índices e consultas."
+        },
+        {
+          "id": "testes",
+          "nome": "Testes automatizados",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 5,
+          "tecnologias": [
+            "pytest ou JUnit",
+            "testes de integração"
+          ],
+          "orientacao": "Crie testes de unidade e de API."
+        },
+        {
+          "id": "seguranca_app",
+          "nome": "Autenticação e segurança básica",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 6,
+          "tecnologias": [
+            "JWT",
+            "validação de entradas"
+          ],
+          "orientacao": "Estude autenticação, autorização e boas práticas."
+        }
+      ],
+      "certificacoes_opcionais": [
+        "AWS Certified Cloud Practitioner (opcional)",
+        "Microsoft Azure Fundamentals — AZ-900 (opcional)"
+      ],
+      "projeto_portfolio": {
+        "titulo": "API de gerenciamento de tarefas",
+        "descricao": "API com cadastro de usuários, persistência e regras de negócio.",
+        "entregaveis": [
+          "Rotas CRUD documentadas",
+          "Banco de dados relacional",
+          "Testes automatizados e instruções de execução"
+        ]
+      }
+    },
+    "frontend_ux": {
+      "nome": "Front-end/UX",
+      "descricao": "Interfaces web acessíveis, usabilidade e experiência.",
+      "pesos": {
+        "design_visual": 5,
+        "experiencia_usuario": 5,
+        "programacao": 4,
+        "colaboracao": 3,
+        "qualidade": 2,
+        "logica": 2,
+        "dados": 2
+      },
+      "objetivos": [
+        "criar_produtos",
+        "criatividade",
+        "qualidade"
+      ],
+      "penalidades": [
+        {
+          "atributo": "experiencia_usuario",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 8,
+          "motivo": "Pouco interesse em experiência do usuário."
+        },
+        {
+          "atributo": "design_visual",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 5,
+          "motivo": "Pouco interesse em design visual."
+        }
+      ],
+      "competencias": [
+        {
+          "id": "html_css",
+          "nome": "HTML e CSS responsivo",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 1,
+          "tecnologias": [
+            "HTML semântico",
+            "CSS",
+            "Flexbox e Grid"
+          ],
+          "orientacao": "Crie layouts adaptáveis a celulares e desktops."
+        },
+        {
+          "id": "js",
+          "nome": "JavaScript/TypeScript",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 2,
+          "tecnologias": [
+            "JavaScript",
+            "TypeScript"
+          ],
+          "orientacao": "Pratique DOM, assincronismo e tipagem."
+        },
+        {
+          "id": "git",
+          "nome": "Git e GitHub",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 3,
+          "tecnologias": [
+            "Git",
+            "GitHub"
+          ],
+          "orientacao": "Versione mudanças e registre decisões."
+        },
+        {
+          "id": "componentes",
+          "nome": "Framework e componentes",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 4,
+          "tecnologias": [
+            "React ou Vue",
+            "componentes"
+          ],
+          "orientacao": "Estruture interfaces reutilizáveis."
+        },
+        {
+          "id": "ux",
+          "nome": "Protótipos e pesquisa UX",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 5,
+          "tecnologias": [
+            "Figma",
+            "wireframes",
+            "testes de usabilidade"
+          ],
+          "orientacao": "Teste fluxos com usuários e documente feedback."
+        },
+        {
+          "id": "acessibilidade",
+          "nome": "Acessibilidade e testes de interface",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 6,
+          "tecnologias": [
+            "WCAG",
+            "Lighthouse"
+          ],
+          "orientacao": "Revise contraste, semântica e navegação por teclado."
+        }
+      ],
+      "certificacoes_opcionais": [
+        "Google UX Design Professional Certificate (opcional)",
+        "Meta Front-End Developer Professional Certificate (opcional)"
+      ],
+      "projeto_portfolio": {
+        "titulo": "Dashboard acessível e responsivo",
+        "descricao": "Interface com componentes reutilizáveis e pesquisa simples de usabilidade.",
+        "entregaveis": [
+          "Protótipo no Figma",
+          "Aplicação responsiva publicada",
+          "Checklist de acessibilidade e testes"
+        ]
+      }
+    },
+    "cientista_dados": {
+      "nome": "Cientista de Dados",
+      "descricao": "Análise estatística, modelos preditivos e experimentação.",
+      "pesos": {
+        "estatistica": 5,
+        "matematica": 5,
+        "dados": 5,
+        "programacao": 3,
+        "logica": 3,
+        "colaboracao": 2
+      },
+      "objetivos": [
+        "pesquisa",
+        "resolver_problemas",
+        "criar_produtos"
+      ],
+      "penalidades": [
+        {
+          "atributo": "estatistica",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 9,
+          "motivo": "Baixo interesse por estatística."
+        },
+        {
+          "atributo": "dados",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 7,
+          "motivo": "Baixo interesse por análises de dados."
+        }
+      ],
+      "competencias": [
+        {
+          "id": "python",
+          "nome": "Python para dados",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 1,
+          "tecnologias": [
+            "Python",
+            "pandas",
+            "NumPy"
+          ],
+          "orientacao": "Manipule tabelas e automatize análises."
+        },
+        {
+          "id": "estatistica",
+          "nome": "Estatística descritiva e inferência",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 2,
+          "tecnologias": [
+            "probabilidade",
+            "distribuições",
+            "testes de hipótese"
+          ],
+          "orientacao": "Interprete estimativas e incertezas."
+        },
+        {
+          "id": "sql",
+          "nome": "SQL para análise",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 3,
+          "tecnologias": [
+            "SQL",
+            "joins",
+            "agregações"
+          ],
+          "orientacao": "Extraia e transforme dados em consultas."
+        },
+        {
+          "id": "visualizacao",
+          "nome": "Visualização e comunicação",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 4,
+          "tecnologias": [
+            "Matplotlib",
+            "Seaborn ou Plotly"
+          ],
+          "orientacao": "Escolha gráficos e explique resultados."
+        },
+        {
+          "id": "ml",
+          "nome": "Aprendizado de máquina básico",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 5,
+          "tecnologias": [
+            "scikit-learn",
+            "validação cruzada"
+          ],
+          "orientacao": "Treine modelos simples e evite vazamento de dados."
+        },
+        {
+          "id": "etica",
+          "nome": "Ética e qualidade de dados",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 6,
+          "tecnologias": [
+            "privacidade",
+            "viés em dados"
+          ],
+          "orientacao": "Documente limitações, vieses e fontes de dados."
+        }
+      ],
+      "certificacoes_opcionais": [
+        "Microsoft Azure Data Scientist Associate — DP-100 (opcional, nível intermediário)",
+        "Google Advanced Data Analytics Professional Certificate (opcional)"
+      ],
+      "projeto_portfolio": {
+        "titulo": "Estudo preditivo com dados públicos",
+        "descricao": "Análise reprodutível e comparação entre modelos simples.",
+        "entregaveis": [
+          "Notebook com limpeza e exploração",
+          "Avaliação de modelos e métricas",
+          "Relatório de limitações e resultados"
+        ]
+      }
+    },
+    "engenheiro_dados": {
+      "nome": "Engenheiro de Dados",
+      "descricao": "Pipelines, integração, armazenamento e confiabilidade de dados.",
+      "pesos": {
+        "dados": 5,
+        "bancos_dados": 5,
+        "programacao": 4,
+        "automacao": 4,
+        "infraestrutura": 3,
+        "nuvem": 3,
+        "qualidade": 2
+      },
+      "objetivos": [
+        "operacao",
+        "resolver_problemas",
+        "qualidade"
+      ],
+      "penalidades": [
+        {
+          "atributo": "bancos_dados",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 9,
+          "motivo": "Pouca afinidade com bancos de dados."
+        },
+        {
+          "atributo": "automacao",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 5,
+          "motivo": "Pouca afinidade com automação."
+        }
+      ],
+      "competencias": [
+        {
+          "id": "sql",
+          "nome": "SQL avançado e modelagem",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 1,
+          "tecnologias": [
+            "SQL",
+            "PostgreSQL",
+            "modelagem dimensional"
+          ],
+          "orientacao": "Domine consultas, índices e modelagem de tabelas."
+        },
+        {
+          "id": "python",
+          "nome": "Python e manipulação de dados",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 2,
+          "tecnologias": [
+            "Python",
+            "pandas"
+          ],
+          "orientacao": "Extraia, limpe e transforme dados."
+        },
+        {
+          "id": "etl",
+          "nome": "Pipelines ETL/ELT",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 3,
+          "tecnologias": [
+            "ETL",
+            "Airflow ou Prefect"
+          ],
+          "orientacao": "Crie fluxos reexecutáveis e auditáveis."
+        },
+        {
+          "id": "storage",
+          "nome": "Armazenamento e formatos",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 4,
+          "tecnologias": [
+            "Parquet",
+            "data lake",
+            "data warehouse"
+          ],
+          "orientacao": "Compare formatos e camadas de dados."
+        },
+        {
+          "id": "cloud",
+          "nome": "Serviços de dados em nuvem",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 5,
+          "tecnologias": [
+            "AWS ou Azure ou GCP"
+          ],
+          "orientacao": "Implemente um pipeline em um serviço de nuvem."
+        },
+        {
+          "id": "observabilidade",
+          "nome": "Qualidade e monitoramento",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 6,
+          "tecnologias": [
+            "validação de dados",
+            "logs",
+            "alertas"
+          ],
+          "orientacao": "Detecte atrasos, falhas e inconsistências."
+        }
+      ],
+      "certificacoes_opcionais": [
+        "Google Cloud Professional Data Engineer (opcional, avançada)",
+        "Microsoft Azure Data Engineer Associate — DP-700 (opcional)"
+      ],
+      "projeto_portfolio": {
+        "titulo": "Pipeline ETL de dados abertos",
+        "descricao": "Coleta automática, transformação e publicação de dados para consulta.",
+        "entregaveis": [
+          "Pipeline agendado",
+          "Armazenamento estruturado",
+          "Validação de qualidade e logs"
+        ]
+      }
+    },
+    "ciberseguranca": {
+      "nome": "Cibersegurança",
+      "descricao": "Proteção, monitoramento, análise de riscos e resposta a incidentes.",
+      "pesos": {
+        "seguranca": 5,
+        "logica": 4,
+        "infraestrutura": 4,
+        "automacao": 3,
+        "programacao": 3,
+        "qualidade": 2,
+        "colaboracao": 2
+      },
+      "objetivos": [
+        "proteger",
+        "resolver_problemas",
+        "qualidade"
+      ],
+      "penalidades": [
+        {
+          "atributo": "seguranca",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 10,
+          "motivo": "Baixa afinidade com segurança digital."
+        },
+        {
+          "atributo": "infraestrutura",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 5,
+          "motivo": "Baixo interesse em infraestrutura."
+        }
+      ],
+      "competencias": [
+        {
+          "id": "redes",
+          "nome": "Fundamentos de redes",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 1,
+          "tecnologias": [
+            "TCP/IP",
+            "DNS",
+            "HTTP"
+          ],
+          "orientacao": "Entenda fluxos, protocolos e segmentação."
+        },
+        {
+          "id": "sistemas",
+          "nome": "Linux e Windows",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 2,
+          "tecnologias": [
+            "Linux",
+            "Windows",
+            "permissões"
+          ],
+          "orientacao": "Pratique administração e controle de acesso em laboratório."
+        },
+        {
+          "id": "fundamentos",
+          "nome": "Princípios de segurança",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 3,
+          "tecnologias": [
+            "CIA",
+            "autenticação",
+            "OWASP Top 10"
+          ],
+          "orientacao": "Conheça ameaças comuns e medidas de proteção."
+        },
+        {
+          "id": "logs",
+          "nome": "Análise de logs e monitoramento",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 4,
+          "tecnologias": [
+            "logs",
+            "SIEM (conceitos)"
+          ],
+          "orientacao": "Investigue eventos simulados e identifique padrões."
+        },
+        {
+          "id": "scripts",
+          "nome": "Automação defensiva",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 5,
+          "tecnologias": [
+            "Python",
+            "Bash"
+          ],
+          "orientacao": "Automatize inventários e verificação de configurações."
+        },
+        {
+          "id": "risco",
+          "nome": "Gestão de vulnerabilidades e riscos",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 6,
+          "tecnologias": [
+            "matriz de riscos",
+            "políticas"
+          ],
+          "orientacao": "Priorize mitigação e elabore relatórios éticos."
+        }
+      ],
+      "certificacoes_opcionais": [
+        "CompTIA Security+ (opcional)",
+        "ISC2 Certified in Cybersecurity — CC (opcional)"
+      ],
+      "projeto_portfolio": {
+        "titulo": "Laboratório de monitoramento defensivo",
+        "descricao": "Ambiente isolado para registrar eventos e propor controles de proteção.",
+        "entregaveis": [
+          "Política de configuração segura",
+          "Painel de logs fictícios",
+          "Relatório de riscos e ações defensivas"
+        ]
+      }
+    },
+    "devops_sre": {
+      "nome": "DevOps/SRE",
+      "descricao": "Automação de entregas, observabilidade e confiabilidade de serviços.",
+      "pesos": {
+        "automacao": 5,
+        "infraestrutura": 5,
+        "nuvem": 4,
+        "programacao": 4,
+        "qualidade": 4,
+        "logica": 3,
+        "colaboracao": 3
+      },
+      "objetivos": [
+        "operacao",
+        "resolver_problemas",
+        "qualidade"
+      ],
+      "penalidades": [
+        {
+          "atributo": "automacao",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 9,
+          "motivo": "Baixo interesse por automação."
+        },
+        {
+          "atributo": "infraestrutura",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 8,
+          "motivo": "Baixo interesse por infraestrutura."
+        }
+      ],
+      "competencias": [
+        {
+          "id": "linux",
+          "nome": "Linux e redes",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 1,
+          "tecnologias": [
+            "Linux",
+            "TCP/IP",
+            "shell"
+          ],
+          "orientacao": "Configure ambientes e investigue conectividade."
+        },
+        {
+          "id": "git",
+          "nome": "Git e práticas de integração",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 2,
+          "tecnologias": [
+            "Git",
+            "pull requests"
+          ],
+          "orientacao": "Organize mudanças reproduzíveis."
+        },
+        {
+          "id": "containers",
+          "nome": "Contêineres",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 3,
+          "tecnologias": [
+            "Docker",
+            "Docker Compose"
+          ],
+          "orientacao": "Empacote aplicações e controle dependências."
+        },
+        {
+          "id": "cicd",
+          "nome": "CI/CD",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 4,
+          "tecnologias": [
+            "GitHub Actions",
+            "pipelines"
+          ],
+          "orientacao": "Automatize testes, build e entrega."
+        },
+        {
+          "id": "iac",
+          "nome": "Infraestrutura como código",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 5,
+          "tecnologias": [
+            "Terraform",
+            "configuração declarativa"
+          ],
+          "orientacao": "Versione infraestrutura de laboratório."
+        },
+        {
+          "id": "monitoramento",
+          "nome": "Observabilidade e SRE",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 6,
+          "tecnologias": [
+            "métricas",
+            "logs",
+            "SLO"
+          ],
+          "orientacao": "Defina indicadores de serviço e monitore falhas."
+        }
+      ],
+      "certificacoes_opcionais": [
+        "AWS Certified Cloud Practitioner (opcional)",
+        "HashiCorp Certified: Terraform Associate (opcional)"
+      ],
+      "projeto_portfolio": {
+        "titulo": "Entrega automatizada de uma aplicação",
+        "descricao": "Aplicação conteinerizada com testes e pipeline de entrega.",
+        "entregaveis": [
+          "Dockerfile e compose",
+          "Pipeline CI/CD",
+          "Painel simples de métricas e logs"
+        ]
+      }
+    },
+    "cloud_architecture": {
+      "nome": "Cloud Architecture",
+      "descricao": "Arquitetura de sistemas em nuvem, escalabilidade e custos.",
+      "pesos": {
+        "nuvem": 5,
+        "infraestrutura": 5,
+        "seguranca": 4,
+        "logica": 4,
+        "automacao": 4,
+        "bancos_dados": 2,
+        "gestao": 2
+      },
+      "objetivos": [
+        "operacao",
+        "resolver_problemas",
+        "proteger"
+      ],
+      "penalidades": [
+        {
+          "atributo": "nuvem",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 10,
+          "motivo": "Pouca afinidade com nuvem."
+        },
+        {
+          "atributo": "infraestrutura",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 7,
+          "motivo": "Pouca afinidade com infraestrutura."
+        }
+      ],
+      "competencias": [
+        {
+          "id": "redes",
+          "nome": "Redes, sistemas e protocolos",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 1,
+          "tecnologias": [
+            "TCP/IP",
+            "Linux",
+            "DNS"
+          ],
+          "orientacao": "Domine redes e componentes de serviços."
+        },
+        {
+          "id": "cloud",
+          "nome": "Fundamentos de nuvem",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 2,
+          "tecnologias": [
+            "AWS ou Azure ou GCP",
+            "IaaS/PaaS/SaaS"
+          ],
+          "orientacao": "Compare modelos de serviço e responsabilidade."
+        },
+        {
+          "id": "seguranca",
+          "nome": "Identidade e segurança de nuvem",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 3,
+          "tecnologias": [
+            "IAM",
+            "princípio do menor privilégio"
+          ],
+          "orientacao": "Implemente permissões mínimas e proteção de dados."
+        },
+        {
+          "id": "desenho",
+          "nome": "Desenho de arquiteturas",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 4,
+          "tecnologias": [
+            "alta disponibilidade",
+            "escalabilidade"
+          ],
+          "orientacao": "Desenhe componentes e elimine pontos únicos de falha."
+        },
+        {
+          "id": "custos",
+          "nome": "Otimização de custos",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 5,
+          "tecnologias": [
+            "estimativa de custos",
+            "dimensionamento"
+          ],
+          "orientacao": "Projete infraestrutura com limites de custo."
+        },
+        {
+          "id": "automacao",
+          "nome": "Implantação automatizada",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 6,
+          "tecnologias": [
+            "Terraform",
+            "CI/CD"
+          ],
+          "orientacao": "Reproduza ambientes via configuração versionada."
+        }
+      ],
+      "certificacoes_opcionais": [
+        "AWS Certified Solutions Architect – Associate (opcional)",
+        "Microsoft Azure Administrator Associate — AZ-104 (opcional)"
+      ],
+      "projeto_portfolio": {
+        "titulo": "Arquitetura de aplicação em nuvem",
+        "descricao": "Proposta de uma aplicação com segurança, disponibilidade e orçamento.",
+        "entregaveis": [
+          "Diagrama de componentes",
+          "Prova de conceito de implantação",
+          "Planilha de custo estimado e riscos"
+        ]
+      }
+    },
+    "mobile": {
+      "nome": "Mobile",
+      "descricao": "Aplicativos para dispositivos móveis e experiências nativas/híbridas.",
+      "pesos": {
+        "mobile": 5,
+        "programacao": 5,
+        "experiencia_usuario": 4,
+        "design_visual": 3,
+        "qualidade": 3,
+        "logica": 3,
+        "colaboracao": 2
+      },
+      "objetivos": [
+        "criar_produtos",
+        "criatividade",
+        "resolver_problemas"
+      ],
+      "penalidades": [
+        {
+          "atributo": "mobile",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 10,
+          "motivo": "Baixa afinidade com aplicativos móveis."
+        },
+        {
+          "atributo": "programacao",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 6,
+          "motivo": "Pouca afinidade com programação."
+        }
+      ],
+      "competencias": [
+        {
+          "id": "linguagem",
+          "nome": "Kotlin, Swift ou JavaScript",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 1,
+          "tecnologias": [
+            "Kotlin ou Swift ou JavaScript"
+          ],
+          "orientacao": "Escolha uma stack e pratique componentes básicos."
+        },
+        {
+          "id": "ui",
+          "nome": "Navegação e interface mobile",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 2,
+          "tecnologias": [
+            "Jetpack Compose ou SwiftUI ou React Native"
+          ],
+          "orientacao": "Crie telas coerentes e acessíveis."
+        },
+        {
+          "id": "estado",
+          "nome": "Estado e persistência local",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 3,
+          "tecnologias": [
+            "estado",
+            "SQLite ou AsyncStorage"
+          ],
+          "orientacao": "Persistência local e gerenciamento de estado."
+        },
+        {
+          "id": "api",
+          "nome": "Consumo de APIs",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 4,
+          "tecnologias": [
+            "HTTP",
+            "JSON",
+            "autenticação"
+          ],
+          "orientacao": "Integre APIs e trate erros de rede."
+        },
+        {
+          "id": "testes",
+          "nome": "Testes de aplicativos",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 5,
+          "tecnologias": [
+            "testes unitários",
+            "emuladores"
+          ],
+          "orientacao": "Teste recursos em mais de um dispositivo."
+        },
+        {
+          "id": "publicacao",
+          "nome": "Build e publicação",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 6,
+          "tecnologias": [
+            "Expo/EAS ou Gradle ou Xcode",
+            "assinatura de build"
+          ],
+          "orientacao": "Documente processo de geração e distribuição."
+        }
+      ],
+      "certificacoes_opcionais": [
+        "Formação ou certificado de conclusão em desenvolvimento Android (opcional)",
+        "Formação ou certificado de conclusão em React Native (opcional)"
+      ],
+      "projeto_portfolio": {
+        "titulo": "Aplicativo de hábitos ou tarefas",
+        "descricao": "App móvel com armazenamento local, navegação e sincronização opcional.",
+        "entregaveis": [
+          "Fluxo de telas",
+          "Build de demonstração",
+          "Testes e vídeo curto do funcionamento"
+        ]
+      }
+    },
+    "qa": {
+      "nome": "QA",
+      "descricao": "Garantia de qualidade, prevenção de defeitos e automação de testes.",
+      "pesos": {
+        "qualidade": 5,
+        "logica": 4,
+        "automacao": 4,
+        "colaboracao": 4,
+        "programacao": 3,
+        "experiencia_usuario": 2,
+        "dados": 2
+      },
+      "objetivos": [
+        "qualidade",
+        "resolver_problemas",
+        "criar_produtos"
+      ],
+      "penalidades": [
+        {
+          "atributo": "qualidade",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 10,
+          "motivo": "Baixa afinidade com testes e qualidade."
+        },
+        {
+          "atributo": "automacao",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 4,
+          "motivo": "Baixo interesse em automação de testes."
+        }
+      ],
+      "competencias": [
+        {
+          "id": "fundamentos",
+          "nome": "Testes e técnicas de qualidade",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 1,
+          "tecnologias": [
+            "testes funcionais",
+            "partição de equivalência"
+          ],
+          "orientacao": "Crie casos de teste baseados em requisitos."
+        },
+        {
+          "id": "bugs",
+          "nome": "Documentação de defeitos",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 2,
+          "tecnologias": [
+            "issues",
+            "reprodução de bugs"
+          ],
+          "orientacao": "Descreva problemas com passos reproduzíveis."
+        },
+        {
+          "id": "api",
+          "nome": "Testes de API",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 3,
+          "tecnologias": [
+            "Postman",
+            "HTTP",
+            "contratos"
+          ],
+          "orientacao": "Valide respostas, erros e cenários de borda."
+        },
+        {
+          "id": "automacao",
+          "nome": "Automação de interface ou API",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 4,
+          "tecnologias": [
+            "Playwright ou Cypress",
+            "pytest"
+          ],
+          "orientacao": "Construa suíte automatizada pequena."
+        },
+        {
+          "id": "git",
+          "nome": "Git e pipelines",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 5,
+          "tecnologias": [
+            "Git",
+            "GitHub Actions"
+          ],
+          "orientacao": "Integre testes a um repositório."
+        },
+        {
+          "id": "metricas",
+          "nome": "Critérios de aceite e métricas",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 6,
+          "tecnologias": [
+            "critérios de aceite",
+            "cobertura",
+            "riscos"
+          ],
+          "orientacao": "Priorize testes e comunique resultados."
+        }
+      ],
+      "certificacoes_opcionais": [
+        "ISTQB Certified Tester Foundation Level — CTFL (opcional)",
+        "ASTQB Mobile Tester (opcional)"
+      ],
+      "projeto_portfolio": {
+        "titulo": "Plano de testes de uma aplicação web",
+        "descricao": "Repositório com casos manuais, bugs simulados e automação.",
+        "entregaveis": [
+          "Matriz de casos e evidências",
+          "Suíte automatizada",
+          "Relatório com defeitos e melhorias"
+        ]
+      }
+    },
+    "product_management": {
+      "nome": "Product Management",
+      "descricao": "Estratégia, descoberta, priorização e evolução de produtos.",
+      "pesos": {
+        "gestao": 5,
+        "colaboracao": 5,
+        "experiencia_usuario": 5,
+        "dados": 4,
+        "qualidade": 3,
+        "design_visual": 2,
+        "logica": 2
+      },
+      "objetivos": [
+        "lideranca",
+        "criar_produtos",
+        "pesquisa"
+      ],
+      "penalidades": [
+        {
+          "atributo": "gestao",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 9,
+          "motivo": "Pouca afinidade com planejamento e priorização."
+        },
+        {
+          "atributo": "colaboracao",
+          "operador": "<=",
+          "valor": 2,
+          "pontos": 6,
+          "motivo": "Baixo interesse em colaboração."
+        }
+      ],
+      "competencias": [
+        {
+          "id": "discovery",
+          "nome": "Descoberta de problemas",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 1,
+          "tecnologias": [
+            "entrevistas",
+            "pesquisa com usuários"
+          ],
+          "orientacao": "Investigue necessidades antes de planejar funcionalidades."
+        },
+        {
+          "id": "requisitos",
+          "nome": "Requisitos e histórias de usuário",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 2,
+          "tecnologias": [
+            "user stories",
+            "critérios de aceite"
+          ],
+          "orientacao": "Escreva requisitos verificáveis."
+        },
+        {
+          "id": "priorizacao",
+          "nome": "Priorização e roadmap",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 3,
+          "tecnologias": [
+            "RICE",
+            "matriz de valor",
+            "roadmap"
+          ],
+          "orientacao": "Justifique escolhas e dependências."
+        },
+        {
+          "id": "metricas",
+          "nome": "Métricas de produto",
+          "niveis": {
+            "junior": 3,
+            "pleno": 4,
+            "senior": 5
+          },
+          "ordem": 4,
+          "tecnologias": [
+            "funil",
+            "retenção",
+            "KPIs"
+          ],
+          "orientacao": "Defina métricas ligadas a um problema real."
+        },
+        {
+          "id": "prototipacao",
+          "nome": "Protótipos e experimentação",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 5,
+          "tecnologias": [
+            "Figma",
+            "testes de conceito"
+          ],
+          "orientacao": "Teste hipóteses com protótipos simples."
+        },
+        {
+          "id": "alinhamento",
+          "nome": "Comunicação com stakeholders",
+          "niveis": {
+            "junior": 2,
+            "pleno": 3,
+            "senior": 5
+          },
+          "ordem": 6,
+          "tecnologias": [
+            "documentação de decisões",
+            "facilitação"
+          ],
+          "orientacao": "Comunique trade-offs a públicos diferentes."
+        }
+      ],
+      "certificacoes_opcionais": [
+        "Professional Scrum Product Owner I — PSPO I (opcional)",
+        "Pragmatic Institute Product Certification (opcional)"
+      ],
+      "projeto_portfolio": {
+        "titulo": "Plano de evolução de um produto fictício",
+        "descricao": "Diagnóstico de um problema e plano de melhoria fundamentado em pesquisa.",
+        "entregaveis": [
+          "Personas e mapa de problemas",
+          "Backlog priorizado e roadmap",
+          "Métricas, hipóteses e protótipo de validação"
+        ]
+      }
+    }
+  }
+}
