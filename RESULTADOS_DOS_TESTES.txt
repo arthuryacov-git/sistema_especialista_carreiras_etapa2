@@ -1,7 +1,7 @@
 VALIDAÇÃO DO PROJETO — SISTEMA ESPECIALISTA DE CARREIRAS EM TI
-Verificação sintática: app.py, motor_inferencia.py e tests/test_motor.py compilados sem erros.
-Testes automatizados: 19 testes aprovados; incluindo 500 perfis aleatórios e 10 arquétipos de carreira.
-A interface gráfica Streamlit não pôde ser iniciada neste ambiente porque a dependência não estava instalada e o acesso ao repositório de pacotes estava indisponível.
+Verificação sintática: app.py, motor_inferencia.py e os testes compilados sem erros.
+Testes automatizados: 20 testes aprovados; incluindo 500 perfis aleatórios, 10 arquétipos de carreira e simulação do fluxo de 4 etapas da interface.
+A execução visual em navegador não foi realizada neste ambiente, pois o Streamlit não está instalado. O fluxo das quatro etapas e a geração do roadmap foram validados por uma simulação automatizada dos controles e do estado da sessão.
 
 AMOSTRAS DOS RESULTADOS DO MOTOR DE INFERÊNCIA
 

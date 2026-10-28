@@ -20,8 +20,8 @@ def ir_para(numero):
 
 
 def mostrar_resultados():
-    afinidades = {atributo:int(st.session_state[f'afinidade_{atributo}']) for atributo in base['atributos']}
-    objetivos = st.session_state['objetivos_usuario']
+    afinidades = dict(st.session_state['respostas_afinidades'])
+    objetivos = list(st.session_state['respostas_objetivos'])
     ranking = calcular_ranking(base, afinidades, objetivos)
 
     st.subheader('Ranking de compatibilidade: suas 3 trilhas principais')
@@ -80,7 +80,8 @@ def mostrar_resultados():
         colunas = st.columns(2)
         for posicao, competencia in enumerate(competencias):
             with colunas[posicao % 2]:
-                st.slider(competencia['nome'], min_value=0, max_value=5, value=0,
+                st.slider(competencia['nome'], min_value=0, max_value=5,
+                          value=st.session_state.avaliacoes.get(trilha_id, {}).get(competencia['id'], 0),
                           key=f'conhecimento_{trilha_id}_{competencia["id"]}',
                           help=competencia['orientacao'])
         confirmado = st.form_submit_button('Gerar / atualizar roadmap', type='primary', use_container_width=True)
@@ -138,8 +139,8 @@ def mostrar_resultados():
         st.write('• ' + certificacao)
     st.caption('As certificações são apenas sugestões, não requisitos para contratação. Confirme nomes, validade, pré-requisitos e disponibilidade nos provedores antes de se inscrever.')
 
-    exportacao = {'perfil':{'apelido_opcional':st.session_state.get('apelido',''),
-                           'experiencia_autodeclarada':st.session_state.get('experiencia',''),
+    exportacao = {'perfil':{'apelido_opcional':st.session_state.get('perfil_dados',{}).get('apelido',''),
+                           'experiencia_autodeclarada':st.session_state.get('perfil_dados',{}).get('experiencia',''),
                            'afinidades':afinidades,'objetivos':objetivos},
                   'metodologia':base['descricao'],'ranking':ranking,'plano':plano}
     st.download_button('Baixar ranking e roadmap em JSON', data=json.dumps(exportacao,ensure_ascii=False,indent=2),
@@ -157,12 +158,19 @@ if st.session_state.etapa == 0:
     st.subheader('Passo 1 — Perfil pessoal')
     st.write('Estas informações servem apenas para contextualizar a recomendação. O apelido é opcional e não altera o ranking.')
     with st.form('form_perfil'):
-        st.text_input('Como gostaria de ser chamado? (opcional)',key='apelido',max_chars=60)
-        st.selectbox('Qual é sua situação atual?',
-                     ['Começando a explorar TI','Estudante de TI','Estudo por conta própria','Em transição de carreira','Já trabalho com tecnologia'],
+        st.text_input('Como gostaria de ser chamado? (opcional)',
+                      value=st.session_state.get('perfil_dados', {}).get('apelido', ''),
+                      key='apelido',max_chars=60)
+        situacoes = ['Começando a explorar TI','Estudante de TI','Estudo por conta própria','Em transição de carreira','Já trabalho com tecnologia']
+        anterior = st.session_state.get('perfil_dados', {}).get('experiencia', situacoes[0])
+        st.selectbox('Qual é sua situação atual?', situacoes, index=situacoes.index(anterior) if anterior in situacoes else 0,
                      key='experiencia')
         proximo = st.form_submit_button('Próximo: afinidades',type='primary')
     if proximo:
+        st.session_state['perfil_dados'] = {
+            'apelido': st.session_state.get('apelido', ''),
+            'experiencia': st.session_state['experiencia']
+        }
         ir_para(1)
 
 elif st.session_state.etapa == 1:
@@ -172,12 +180,17 @@ elif st.session_state.etapa == 1:
         colunas = st.columns(2)
         for posicao,(chave,atributo) in enumerate(base['atributos'].items()):
             with colunas[posicao % 2]:
-                st.slider(atributo['rotulo'],min_value=1,max_value=5,value=3,
+                st.slider(atributo['rotulo'],min_value=1,max_value=5,
+                          value=st.session_state.get('respostas_afinidades', {}).get(chave, 3),
                           key=f'afinidade_{chave}',help=atributo['descricao'])
         avancar = st.form_submit_button('Próximo: objetivos profissionais',type='primary')
     if st.button('Voltar ao perfil'):
         ir_para(0)
     if avancar:
+        st.session_state['respostas_afinidades'] = {
+            chave: int(st.session_state[f'afinidade_{chave}'])
+            for chave in base['atributos']
+        }
         ir_para(2)
 
 elif st.session_state.etapa == 2:
@@ -186,7 +199,9 @@ elif st.session_state.etapa == 2:
     with st.form('form_objetivos'):
         escolhas = st.multiselect('Seus objetivos principais',options=list(base['objetivos'].keys()),
                                   format_func=lambda chave:base['objetivos'][chave],
-                                  max_selections=base['parametros']['maximo_objetivos'],key='objetivos_usuario')
+                                  max_selections=base['parametros']['maximo_objetivos'],
+                                  default=st.session_state.get('respostas_objetivos', []),
+                                  key='objetivos_usuario')
         avancar = st.form_submit_button('Calcular ranking e abrir roadmap',type='primary')
     if st.button('Voltar às afinidades'):
         ir_para(1)
@@ -194,6 +209,7 @@ elif st.session_state.etapa == 2:
         if not escolhas:
             st.warning('Selecione ao menos um objetivo para continuar.')
         else:
+            st.session_state['respostas_objetivos'] = list(escolhas)
             ir_para(3)
 
 else:
@@ -202,7 +218,8 @@ else:
     if st.button('Começar nova análise'):
         st.session_state.clear()
         st.rerun()
-    if 'objetivos_usuario' in st.session_state and all(f'afinidade_{chave}' in st.session_state for chave in base['atributos']):
+    if (set(st.session_state.get('respostas_afinidades', {})) == set(base['atributos'])
+            and st.session_state.get('respostas_objetivos')):
         mostrar_resultados()
     else:
         st.warning('O perfil ainda não está completo. Volte à primeira etapa.')

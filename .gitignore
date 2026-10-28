@@ -5,4 +5,3 @@ venv/
 .env
 .streamlit/secrets.toml
 *.pyc
-sistema_especialista_carreiras_etapa2/
